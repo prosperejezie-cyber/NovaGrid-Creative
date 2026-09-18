@@ -1,5 +1,8 @@
 import React from "react";
-
+import card1 from './assets/hero.png'
+import card2 from './assets/user2.jpg'
+import card3 from './assets/user1.jpg'
+import card4 from './assets/newyork.png'
 const App = () => {
   return (
     <div>
@@ -56,7 +59,7 @@ const App = () => {
         </div>
         <div className="about-image">
           <img
-            src="../../../../Pictures/Wallpapers/my wedding pictures/_DSC8541.jpg"
+            src={card1}
             alt="student learning"
           />
         </div>
@@ -67,7 +70,8 @@ const App = () => {
         <h2>Feedback From Our Students</h2>
         <div className="Testimonial-container">
           <div className="card">
-            <img src="../../../../Pictures/Wallpapers/my wedding pictures/_DSC8545.jpg" />
+            <img src={card4}
+            alt="student learning" />
             <h3>Oluchi Iwueze</h3>
             <p>
               This Academy Complete Change my Career. so far i have gotten a
@@ -75,7 +79,8 @@ const App = () => {
             </p>
           </div>
           <div className="card">
-            <img src="../../../../Pictures/Wallpapers/my wedding pictures/_DSC9191.jpg" />
+            <img src={card2}
+            alt="student learning" />
             <h3>Iwu Clement</h3>
             <p>
               The academy stands to be stepping stone towards my dream in the
@@ -83,7 +88,8 @@ const App = () => {
             </p>
           </div>
           <div className="card">
-            <img src="../../../../Pictures/Wallpapers/my wedding pictures/_DSC8524.jpg" />
+            <img src={card3}
+            alt="student learning" />
             <h3>Joseph Claret</h3>
             <p>
               This Academy Complete Change my Career. so far i have gotten a
