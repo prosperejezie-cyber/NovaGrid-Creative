@@ -1,0 +1,26 @@
+/* CALL TO ACTION SECTION */
+.cta {
+  padding: 80px 10%;
+  background-color: #007bff;
+  text-align: center;
+  color: whitesmoke;
+}
+.cta-content h2 {
+  margin-bottom: 15px;
+  font-size: 40px;
+}
+.cta-content p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+.cta-content .cta-button {
+  text-decoration: none;
+  color: rgb(7, 7, 6);
+  padding: 15px 23px;
+  background-color: bisque;
+}
+.cta-content .cta-button:hover {
+  border-radius: 20px;
+  background-color: red;
+  color: wheat;
+}
