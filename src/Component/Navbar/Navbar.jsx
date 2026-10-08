@@ -1,26 +1,191 @@
-import React from 'react'
-import "./Navbar.css";
+import * as React from 'react';
+import { Link as RouterLink } from 'react-router-dom'; // Import Link component for routing
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+import Logo1 from '../../assets/Logo1.png'
 
-const Navbar = () => {
+// Fixed the syntax error by turning it into a proper array of objects
+const pages = [
+  // { name: 'Login', path: '/LoginScreen' },
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/AboutUsPage' },
+  { name: 'Services', path: '/OurServicesPage' },
+  { name: 'Contact us', path: '/ContactUsPage' }
+];
+
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+function ResponsiveAppBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
-    <div> {/* <!-- HEADER --> */}
-      <section>
-        <header>
-          <div className="nav-links-text">
-            <a href="Home">Home</a>
-          </div>
-          <div className="nav-links-text">
-            <a href="contact us">Contact us</a>
-          </div>
-          <div className="nav-links-text">
-            <a href="About">About</a>
-          </div>
-          <div className="nav-links-text">
-            <a href="services">Services</a>
-          </div>
-        </header>
-      </section></div>
-  )
-}
+    <AppBar position="static"
+      sx={{ backgroundColor: "#0B1F3A"
+      }}
+      >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <img src={Logo1}
+                      alt="student learning" 
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        objectFit: "contain",
+                      }}/>
+                      
+          <Typography
+            variant="h6"
+            noWrap
+            component={RouterLink} // Changes link strategy to React Router
+            to="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+          </Typography>
 
-export default Navbar
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{ display: { xs: 'block', md: 'none' } }}
+            >
+              {pages.map((page) => (
+                <MenuItem 
+                  key={page.path} 
+                  onClick={handleCloseNavMenu}
+                  component={RouterLink} // Links mobile menu to React Router
+                  to={page.path}
+                >
+                  <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            noWrap
+            component={RouterLink} // Links mobile logo to Home
+            to="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            LOGO
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page.path}
+                onClick={handleCloseNavMenu}
+                component={RouterLink} // Links desktop buttons to React Router
+                to={page.path}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page.name}
+              </Button>
+            ))}
+          </Box>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <img src={Logo1}
+                      alt="student learning" 
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        objectFit: "contain", }}/>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
+export default ResponsiveAppBar;

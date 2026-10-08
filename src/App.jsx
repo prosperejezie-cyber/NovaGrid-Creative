@@ -1,24 +1,23 @@
-import React from "react";
-// import card1 from '../../assets/hero.png'
-// import card2 from './assets/user2.jpg'
-// import card3 from './assets/user1.jpg'
-// import card4 from './assets/newyork.png'
-import Navbar from "./Component/Navbar/Navbar";
-import Hero from "./Component/Hero/Hero";
-import About from "./Component/About/About";
-import Testimony from "./Component/Testimony/Testimony"
-import Call from "./Component/Call/Call"
-import Footer from "./Component/Footer/Footer"
+import LandingPage from "./Pages/LandingPage";
+import { Route, Routes } from "react-router-dom";
+import ContactUsPage from "./Pages/ContactUsPage";
+import AboutUsPage from "./Pages/AboutUsPage";
+import OurServicesPage from "./Pages/OurServicesPage"
+import LoginScreen from "./Pages/Login";
+import Register from "./Pages/Register";
+
 
 const App = () => {
   return (
     <div>
-      <Navbar /> 
-      <Hero />
-      <About />
-      <Testimony />
-      <Call />
-      <Footer />
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/ContactUsPage" element={<ContactUsPage />} />
+      <Route path="/AboutUsPage" element={<AboutUsPage />} />
+      <Route path="/OurServicesPage" element={<OurServicesPage />} />
+      <Route path="/Login" element={<LoginScreen />} />
+      <Route path="/Register" element={<Register />} />
+    </Routes>
     </div>
   )
 }

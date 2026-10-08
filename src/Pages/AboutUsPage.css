@@ -1,0 +1,68 @@
+.About{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.About-hero{
+  background: #0B1023;
+  color: whitesmoke;
+  text-align: center;
+  padding:80px 20px; 
+}
+.About-hero h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.About-hero p {
+  font-size: 20px;
+  color: white;
+}
+.About-content {
+  padding: 50px 10%;
+}
+.About-content h2{
+  color: #0B1023;
+  margin-top: 30px;
+}
+.About-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+}
+/* CONTACT DETAILS */
+
+.contact-details {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+
+/* CONTACT BOX */
+
+.contact-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* CONTACT BOX HEADING */
+
+.contact-box h2 {
+  font-size: 22px;
+  color: #12355b;
+  margin-bottom: 10px;
+}
+
+
+/* CONTACT BOX TEXT */
+
+.contact-box p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
